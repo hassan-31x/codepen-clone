@@ -4,7 +4,7 @@ import { AiFillHeart, AiTwotoneSetting, AiFillLayout } from 'react-icons/ai'
 
 const Navbar = () => {
   return (
-    <nav className='w-screen h-16 bg-black flex items-center justify-between px-2 py-2'>
+    <nav className='w-screen h-16 bg-black flex items-center justify-between px-2 py-2 border-b border-gray-900'>
         <div className='flex gap-1'>
             <Image src="/logo.png" width={45} height={45} alt='codepen logo' />
             <div className='flex flex-col'>
@@ -13,7 +13,7 @@ const Navbar = () => {
             </div>
         </div>
 
-        <div className='flex gap-[0.6rem] text-white '>
+        <div className='hidden md:flex gap-[0.6rem] text-white '>
             <div className='bg-gray-700 rounded-md px-5 flex items-center justify-center py-[0.65rem]'><IconContext.Provider value={{ className: 'text-white text-lg'}}>
                 <AiFillHeart />
             </IconContext.Provider></div>
