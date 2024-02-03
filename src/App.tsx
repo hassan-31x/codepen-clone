@@ -1,18 +1,21 @@
 import { useState, useEffect, useRef } from "react";
-import Navbar from "@/components/Navbar";
-import CodeEditor from "@/components/CodeEditor";
+import useLocalStorage from "./hooks/useLocalStorage";
+
 import {
   ResizableHandle,
   ResizablePanel,
   ResizablePanelGroup,
-} from "./components/ui/resizable";
+} from "@/components/ui/resizable";
+
+import Navbar from "@/components/navbar";
+import CodeEditor from "@/components/code-editor";
 
 import "./App.css";
 
 export default function App() {
-  const [html, setHtml] = useState("");
-  const [css, setCss] = useState("");
-  const [js, setJs] = useState("");
+  const [html, setHtml] = useLocalStorage("html", "");
+  const [css, setCss] = useLocalStorage("css", "");
+  const [js, setJs] = useLocalStorage("javascript", "");
   const [code, setCode] = useState("");
 
   useEffect(() => {
@@ -28,7 +31,6 @@ export default function App() {
 
     return () => clearTimeout(timeout);
   }, [html, css, js]);
-
 
   //TODO For Making an integrated Console
   const iframeRef = useRef(null);
