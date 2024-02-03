@@ -1,4 +1,3 @@
-import Image from 'next/Image';
 import { IconContext } from 'react-icons';
 import { AiFillHeart, AiTwotoneSetting, AiFillLayout } from 'react-icons/ai'
 
@@ -6,7 +5,7 @@ const Navbar = () => {
   return (
     <nav className='w-screen h-16 bg-black flex items-center justify-between px-2 py-2 border-b border-gray-900'>
         <div className='flex gap-1'>
-            <Image src="/logo.png" width={45} height={45} alt='codepen logo' />
+            <img src="/logo.png" width={45} height={45} alt='codepen logo' />
             <div className='flex flex-col'>
                 <h3 className='text-xl font-semibold text-white tracking-tighter'>Heading of Code</h3>
                 <p className='text-[0.85rem] font-light text-gray-400 leading-tightest'>Username<span className='bg-green-500 pt-[-2] text-black px-[0.2rem] font-medium rounded-sm text-[0.65rem] ml-2'>+ Follow</span></p>
