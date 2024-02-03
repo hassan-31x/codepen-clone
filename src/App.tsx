@@ -17,7 +17,7 @@ export default function App() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-    setCode(`
+      setCode(`
         <html>
           <body>${html}</body>
           <style>${css}</style>
