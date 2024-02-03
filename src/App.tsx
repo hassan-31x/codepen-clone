@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
-import NewEditor from "@/components/NewEditor";
+import CodeEditor from "@/components/CodeEditor";
 import {
   ResizableHandle,
   ResizablePanel,
@@ -13,24 +13,41 @@ export default function App() {
   const [html, setHtml] = useState("");
   const [css, setCss] = useState("");
   const [js, setJs] = useState("");
-
-  const iframeRef = useRef(null);
-  const handleIframeError = (event: any) => {
-    // const errorMessage = event.message;
-    // console.error('Error in the iframe:', errorMessage);
-    console.log("hellow");
-    // Handle the error as needed
-  };
+  const [code, setCode] = useState("");
 
   useEffect(() => {
-    const iframe = iframeRef.current;
-    console.log(iframe);
-    iframe?.contentWindow?.addEventListener("error", handleIframeError);
+    const timeout = setTimeout(() => {
+    setCode(`
+        <html>
+          <body>${html}</body>
+          <style>${css}</style>
+          <script>${js}</script>
+        </html>
+      `);
+    }, 250);
 
-    // return () => {
-    //   iframe.contentWindow.removeEventListener('mouseup', handleIframeError);
-    // };
-  }, []);
+    return () => clearTimeout(timeout);
+  }, [html, css, js]);
+
+
+  //TODO For Making an integrated Console
+  const iframeRef = useRef(null);
+  // const handleIframeError = (event: any) => {
+  //   // const errorMessage = event.message;
+  //   // console.error('Error in the iframe:', errorMessage);
+  //   console.log("hellow", event);
+  //   // Handle the error as needed
+  // };
+
+  // useEffect(() => {
+  //   const iframe = iframeRef.current;
+  //   console.log(iframe);
+  //   iframe?.contentWindow?.addEventListener("error", handleIframeError);
+
+  //   // return () => {
+  //   //   iframe.contentWindow.removeEventListener('mouseup', handleIframeError);
+  //   // };
+  // }, []);
 
   return (
     <div>
@@ -47,7 +64,7 @@ export default function App() {
               className="px-3 pt-1 pb-5 bg-black"
             >
               <ResizablePanel defaultSize={33}>
-                <NewEditor
+                <CodeEditor
                   language="xml"
                   name="HTML"
                   value={html}
@@ -56,7 +73,7 @@ export default function App() {
               </ResizablePanel>
               <ResizableHandle />
               <ResizablePanel defaultSize={33}>
-                <NewEditor
+                <CodeEditor
                   language="css"
                   name="CSS"
                   value={css}
@@ -65,7 +82,7 @@ export default function App() {
               </ResizablePanel>
               <ResizableHandle />
               <ResizablePanel defaultSize={33}>
-                <NewEditor
+                <CodeEditor
                   language="javascript"
                   name="JavaScript"
                   value={js}
@@ -77,11 +94,7 @@ export default function App() {
           <ResizableHandle />
           <ResizablePanel defaultSize={50}>
             <iframe
-              srcDoc={`<html>
-              <body>${html}</body>
-              <style>${css}</style>
-              <script>${js}</script>
-              </html>`}
+              srcDoc={code}
               title="output"
               className="w-full h-full"
               // sandbox='allow-scripts' //for security purposes (commented out in order to show console errors)

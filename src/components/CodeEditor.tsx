@@ -1,3 +1,4 @@
+import { useTheme } from "./theme-provider";
 
 import { Controlled as ControlledEditor } from "react-codemirror2";
 
@@ -8,7 +9,6 @@ import 'codemirror/mode/xml/xml'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/css/css'
 import 'codemirror/addon/edit/closebrackets'
-import { useTheme } from "./theme-provider";
 
 type NewEditorProps = {
   language: string;
@@ -17,7 +17,7 @@ type NewEditorProps = {
   onChange: (value: string) => void;
 }
 
-const NewEditor = ({
+const CodeEditor = ({
   language,
   name,
   value,
@@ -26,7 +26,7 @@ const NewEditor = ({
 
   const { theme } = useTheme()
 
-  function handleChange(editor, data, value) {
+  function handleChange(value: string) {
     onChange(value);
   }
 
@@ -60,4 +60,4 @@ const NewEditor = ({
   );
 };
 
-export default NewEditor;
+export default CodeEditor;
