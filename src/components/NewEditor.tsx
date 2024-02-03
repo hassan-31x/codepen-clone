@@ -1,6 +1,5 @@
 
 import { Controlled as ControlledEditor } from "react-codemirror2";
-// import { Editor, EditorChange } from "codemirror";
 
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/base16-dark.css'
