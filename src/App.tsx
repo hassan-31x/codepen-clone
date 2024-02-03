@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import CodeEditor from './components/codeEditors'
-import Navbar from './components/Navbar'
-import NewEditor from './components/NewEditor'
-// import CodeEditor from '@/components/codeEditor'
+import Navbar from '@/components/Navbar'
+import NewEditor from '@/components/NewEditor'
 
 
 export default function App() {

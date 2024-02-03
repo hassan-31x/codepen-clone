@@ -3,10 +3,12 @@ import { Controlled as ControlledEditor } from "react-codemirror2";
 
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/base16-dark.css'
+import 'codemirror/theme/base16-light.css'
 import 'codemirror/mode/xml/xml'
 import 'codemirror/mode/javascript/javascript'
 import 'codemirror/mode/css/css'
 import 'codemirror/addon/edit/closebrackets'
+import { useTheme } from "./theme-provider";
 
 type NewEditorProps = {
   language: string;
@@ -22,6 +24,7 @@ const NewEditor = ({
   onChange
 }: NewEditorProps) => {
 
+  const { theme } = useTheme()
 
   function handleChange(editor, data, value) {
     onChange(value);
@@ -39,7 +42,7 @@ const NewEditor = ({
           lineWrapping: true,
           lint: true,
           mode: language,
-          theme: 'base16-dark',
+          theme: theme === 'dark' ? 'base16-dark' : 'base16-light',
           lineNumbers: true,
           autoCloseBrackets: true
         }}

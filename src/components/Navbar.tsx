@@ -1,5 +1,6 @@
 import { IconContext } from 'react-icons';
 import { AiFillHeart, AiTwotoneSetting, AiFillLayout } from 'react-icons/ai'
+import { ModeToggle } from './mode-toggle';
 
 const Navbar = () => {
   return (
@@ -13,6 +14,9 @@ const Navbar = () => {
         </div>
 
         <div className='hidden md:flex gap-[0.6rem] text-white '>
+            <div className=' p-4'>
+            <ModeToggle />
+            </div>
             <div className='bg-gray-700 rounded-md px-5 flex items-center justify-center py-[0.65rem]'><IconContext.Provider value={{ className: 'text-white text-lg'}}>
                 <AiFillHeart />
             </IconContext.Provider></div>
