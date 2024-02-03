@@ -20,9 +20,9 @@ type NewEditorProps = {
 
 
 const COLORS = {
-  HTML: 'red-500',
-  CSS: 'blue-500',
-  JavaScript: 'yellow-400'
+  HTML: '#ef4444',
+  CSS: '#3b82f6',
+  JavaScript: '#facc15'
 }
 
 const SYMBOLS = {
@@ -44,11 +44,10 @@ const CodeEditor = ({
       onChange(value);
   }
 
-
   return (
     <div className='w-full h-full flex flex-col items-start'>
       <div className='bg-[#151515] text-gray-400 flex items-center gap-1 px-3 text-xs lg:text-md lg:font-semibold border-t-2 border-gray-400 py-2'>
-        <span className={`text-black text-xs w-5 h-5 flex items-center justify-center rounded-md bg-${COLORS[name]}`}>{SYMBOLS[name]}</span>
+        <span className="text-black text-xs w-5 h-5 flex items-center justify-center rounded-md" style={{ background: COLORS[name] }}>{SYMBOLS[name]}</span>
         {name}
       </div>
       <ControlledEditor
