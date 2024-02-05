@@ -8,16 +8,16 @@ const Navbar = () => {
         <div className='flex gap-1'>
             <img src="/logo.png" width={45} height={45} alt='codepen logo' />
             <div className='flex flex-col'>
-                <h3 className='text-xl font-semibold text-white tracking-tighter'>Heading of Code</h3>
-                <p className='text-[0.85rem] font-light text-gray-400 leading-tightest'>Username<span className='bg-green-500 pt-[-2] text-black px-[0.2rem] font-medium rounded-sm text-[0.65rem] ml-2'>+ Follow</span></p>
+                <h3 className='text-xl font-semibold text-white tracking-tighter'>Basic Website Demo</h3>
+                <p className='text-[0.85rem] font-medium text-gray-500 leading-tightest'>@hassan<span className='bg-green-500 pt-[-2] text-black px-[0.2rem] font-medium rounded-sm text-[0.65rem] ml-2'>+ Follow</span></p>
             </div>
         </div>
 
-        <div className='hidden md:flex gap-[0.6rem] text-white '>
-            <div className=' p-4'>
+        <div className='hidden md:flex items-center gap-[0.6rem] text-white '>
+            <div className='p-4 pr-0'>
             <ModeToggle />
             </div>
-            <div className='bg-gray-700 rounded-md px-5 flex items-center justify-center py-[0.65rem]'><IconContext.Provider value={{ className: 'text-white text-lg'}}>
+            <div className='bg-gray-700 rounded-md px-5 flex items-center justify-center py-[0.87rem]'><IconContext.Provider value={{ className: 'text-white text-lg'}}>
                 <AiFillHeart />
             </IconContext.Provider></div>
             <div className='bg-gray-700 rounded-md px-5 flex items-center justify-center py-[0.65rem] gap-1'><IconContext.Provider value={{ className: 'text-white text-lg'}}>
